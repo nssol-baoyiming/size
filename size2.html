@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f7f7f7;
+            color: #333;
+            font-weight: bold;
+        }
+        td {
+            background-color: #fafafa;
+        }
+        input {
+            width: 95%;
+            padding: 8px;
+            margin: 2px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .calculator-panel {
+            position: absolute;
+            display: none;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: 4px;
+            max-width: calc(60px * 3 + 20px);
+        }
+        .calculator-button {
+            width: 60px;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculator-button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Size Information Form</h2>
+    <form>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Measurement Unit<br>测量部位</th>
+                    <th rowspan="2">Standard<br>标准值 (已填写)</th>
+                    <th colspan="5">Sizes 尺码:</th></tr><tr><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;">BODY LENGTH FRONT / 前身长</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="body_length_front_s"></td><td><input type="text" name="body_length_front_m"></td><td><input type="text" name="body_length_front_l"></td><td><input type="text" name="body_length_front_xl"></td><td><input type="text" name="body_length_front_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">BODY LENGTH BACK / 后身长</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="body_length_back_s"></td><td><input type="text" name="body_length_back_m"></td><td><input type="text" name="body_length_back_l"></td><td><input type="text" name="body_length_back_xl"></td><td><input type="text" name="body_length_back_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">SHOULDER WIDTH / 肩宽</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="shoulder_width_s"></td><td><input type="text" name="shoulder_width_m"></td><td><input type="text" name="shoulder_width_l"></td><td><input type="text" name="shoulder_width_xl"></td><td><input type="text" name="shoulder_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">BODY WIDTH / 胸围</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="body_width_s"></td><td><input type="text" name="body_width_m"></td><td><input type="text" name="body_width_l"></td><td><input type="text" name="body_width_xl"></td><td><input type="text" name="body_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">WAIST WIDTH / 腰围</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="waist_width_s"></td><td><input type="text" name="waist_width_m"></td><td><input type="text" name="waist_width_l"></td><td><input type="text" name="waist_width_xl"></td><td><input type="text" name="waist_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">BOTTOM WIDTH / 下摆围</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="bottom_width_s"></td><td><input type="text" name="bottom_width_m"></td><td><input type="text" name="bottom_width_l"></td><td><input type="text" name="bottom_width_xl"></td><td><input type="text" name="bottom_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">SLEEVE LENGTH / 袖长</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="sleeve_length_s"></td><td><input type="text" name="sleeve_length_m"></td><td><input type="text" name="sleeve_length_l"></td><td><input type="text" name="sleeve_length_xl"></td><td><input type="text" name="sleeve_length_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">SLEEVE LENGTH (CB) / 后袖长</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="sleeve_length_cb_s"></td><td><input type="text" name="sleeve_length_cb_m"></td><td><input type="text" name="sleeve_length_cb_l"></td><td><input type="text" name="sleeve_length_cb_xl"></td><td><input type="text" name="sleeve_length_cb_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">SLEEVE WIDTH / 袖肥</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="sleeve_width_s"></td><td><input type="text" name="sleeve_width_m"></td><td><input type="text" name="sleeve_width_l"></td><td><input type="text" name="sleeve_width_xl"></td><td><input type="text" name="sleeve_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">SLEEVE HEM WIDTH / 袖口</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="sleeve_hem_width_s"></td><td><input type="text" name="sleeve_hem_width_m"></td><td><input type="text" name="sleeve_hem_width_l"></td><td><input type="text" name="sleeve_hem_width_xl"></td><td><input type="text" name="sleeve_hem_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">BACK NECK WIDTH SEAM TO SEAM / 天巾</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="back_neck_width_s"></td><td><input type="text" name="back_neck_width_m"></td><td><input type="text" name="back_neck_width_l"></td><td><input type="text" name="back_neck_width_xl"></td><td><input type="text" name="back_neck_width_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">BACK NECK WIDTH IN TO IN / 后领宽</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="back_neck_width_in_s"></td><td><input type="text" name="back_neck_width_in_m"></td><td><input type="text" name="back_neck_width_in_l"></td><td><input type="text" name="back_neck_width_in_xl"></td><td><input type="text" name="back_neck_width_in_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">FRONT NECK DEPTH / 前领深</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="front_neck_depth_s"></td><td><input type="text" name="front_neck_depth_m"></td><td><input type="text" name="front_neck_depth_l"></td><td><input type="text" name="front_neck_depth_xl"></td><td><input type="text" name="front_neck_depth_xxl"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">BACK NECK DEPTH / 后领深</td>
+                    <td><label>-</label></td>
+                    <td><input type="text" name="back_neck_depth_s"></td><td><input type="text" name="back_neck_depth_m"></td><td><input type="text" name="back_neck_depth_l"></td><td><input type="text" name="back_neck_depth_xl"></td><td><input type="text" name="back_neck_depth_xxl"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
