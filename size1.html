@@ -42,6 +42,10 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            pointer-events: none; /* Disable default input interactions */
+        }
+        input.readonly {
+            pointer-events: auto; /* Enable pointer events for readonly input */
         }
         .calculator-panel {
             position: absolute;
