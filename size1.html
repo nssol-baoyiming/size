@@ -42,10 +42,6 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-            pointer-events: none; /* Disable default input interactions */
-        }
-        input.readonly {
-            pointer-events: auto; /* Enable pointer events for readonly input */
         }
         .calculator-panel {
             position: absolute;
@@ -88,72 +84,72 @@
                 <tr>
                     <td style="text-align: left;">BODY LENGTH FRONT / 前身长</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="body_length_front_s" class="input-field"></td><td><input type="text" name="body_length_front_m" class="input-field"></td><td><input type="text" name="body_length_front_l" class="input-field"></td><td><input type="text" name="body_length_front_xl" class="input-field"></td><td><input type="text" name="body_length_front_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="body_length_front_s" class="input-field"></td><td><input type="text" readonly  name="body_length_front_m" class="input-field"></td><td><input type="text" readonly  name="body_length_front_l" class="input-field"></td><td><input type="text" readonly  name="body_length_front_xl" class="input-field"></td><td><input type="text" readonly  name="body_length_front_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BODY LENGTH BACK / 后身长</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="body_length_back_s" class="input-field"></td><td><input type="text" name="body_length_back_m" class="input-field"></td><td><input type="text" name="body_length_back_l" class="input-field"></td><td><input type="text" name="body_length_back_xl" class="input-field"></td><td><input type="text" name="body_length_back_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="body_length_back_s" class="input-field"></td><td><input type="text" readonly  name="body_length_back_m" class="input-field"></td><td><input type="text" readonly  name="body_length_back_l" class="input-field"></td><td><input type="text" readonly  name="body_length_back_xl" class="input-field"></td><td><input type="text" readonly  name="body_length_back_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">SHOULDER WIDTH / 肩宽</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="shoulder_width_s" class="input-field"></td><td><input type="text" name="shoulder_width_m" class="input-field"></td><td><input type="text" name="shoulder_width_l" class="input-field"></td><td><input type="text" name="shoulder_width_xl" class="input-field"></td><td><input type="text" name="shoulder_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="shoulder_width_s" class="input-field"></td><td><input type="text" readonly  name="shoulder_width_m" class="input-field"></td><td><input type="text" readonly  name="shoulder_width_l" class="input-field"></td><td><input type="text" readonly  name="shoulder_width_xl" class="input-field"></td><td><input type="text" readonly  name="shoulder_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BODY WIDTH / 胸围</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="body_width_s" class="input-field"></td><td><input type="text" name="body_width_m" class="input-field"></td><td><input type="text" name="body_width_l" class="input-field"></td><td><input type="text" name="body_width_xl" class="input-field"></td><td><input type="text" name="body_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="body_width_s" class="input-field"></td><td><input type="text" readonly  name="body_width_m" class="input-field"></td><td><input type="text" readonly  name="body_width_l" class="input-field"></td><td><input type="text" readonly  name="body_width_xl" class="input-field"></td><td><input type="text" readonly  name="body_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">WAIST WIDTH / 腰围</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="waist_width_s" class="input-field"></td><td><input type="text" name="waist_width_m" class="input-field"></td><td><input type="text" name="waist_width_l" class="input-field"></td><td><input type="text" name="waist_width_xl" class="input-field"></td><td><input type="text" name="waist_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="waist_width_s" class="input-field"></td><td><input type="text" readonly  name="waist_width_m" class="input-field"></td><td><input type="text" readonly  name="waist_width_l" class="input-field"></td><td><input type="text" readonly  name="waist_width_xl" class="input-field"></td><td><input type="text" readonly  name="waist_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BOTTOM WIDTH / 下摆围</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="bottom_width_s" class="input-field"></td><td><input type="text" name="bottom_width_m" class="input-field"></td><td><input type="text" name="bottom_width_l" class="input-field"></td><td><input type="text" name="bottom_width_xl" class="input-field"></td><td><input type="text" name="bottom_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="bottom_width_s" class="input-field"></td><td><input type="text" readonly  name="bottom_width_m" class="input-field"></td><td><input type="text" readonly  name="bottom_width_l" class="input-field"></td><td><input type="text" readonly  name="bottom_width_xl" class="input-field"></td><td><input type="text" readonly  name="bottom_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">SLEEVE LENGTH / 袖长</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="sleeve_length_s" class="input-field"></td><td><input type="text" name="sleeve_length_m" class="input-field"></td><td><input type="text" name="sleeve_length_l" class="input-field"></td><td><input type="text" name="sleeve_length_xl" class="input-field"></td><td><input type="text" name="sleeve_length_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="sleeve_length_s" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_m" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_l" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_xl" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">SLEEVE LENGTH (CB) / 后袖长</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="sleeve_length_cb_s" class="input-field"></td><td><input type="text" name="sleeve_length_cb_m" class="input-field"></td><td><input type="text" name="sleeve_length_cb_l" class="input-field"></td><td><input type="text" name="sleeve_length_cb_xl" class="input-field"></td><td><input type="text" name="sleeve_length_cb_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="sleeve_length_cb_s" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_cb_m" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_cb_l" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_cb_xl" class="input-field"></td><td><input type="text" readonly  name="sleeve_length_cb_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">SLEEVE WIDTH / 袖肥</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="sleeve_width_s" class="input-field"></td><td><input type="text" name="sleeve_width_m" class="input-field"></td><td><input type="text" name="sleeve_width_l" class="input-field"></td><td><input type="text" name="sleeve_width_xl" class="input-field"></td><td><input type="text" name="sleeve_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="sleeve_width_s" class="input-field"></td><td><input type="text" readonly  name="sleeve_width_m" class="input-field"></td><td><input type="text" readonly  name="sleeve_width_l" class="input-field"></td><td><input type="text" readonly  name="sleeve_width_xl" class="input-field"></td><td><input type="text" readonly  name="sleeve_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">SLEEVE HEM WIDTH / 袖口</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="sleeve_hem_width_s" class="input-field"></td><td><input type="text" name="sleeve_hem_width_m" class="input-field"></td><td><input type="text" name="sleeve_hem_width_l" class="input-field"></td><td><input type="text" name="sleeve_hem_width_xl" class="input-field"></td><td><input type="text" name="sleeve_hem_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="sleeve_hem_width_s" class="input-field"></td><td><input type="text" readonly  name="sleeve_hem_width_m" class="input-field"></td><td><input type="text" readonly  name="sleeve_hem_width_l" class="input-field"></td><td><input type="text" readonly  name="sleeve_hem_width_xl" class="input-field"></td><td><input type="text" readonly  name="sleeve_hem_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BACK NECK WIDTH SEAM TO SEAM / 天巾</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="back_neck_width_s" class="input-field"></td><td><input type="text" name="back_neck_width_m" class="input-field"></td><td><input type="text" name="back_neck_width_l" class="input-field"></td><td><input type="text" name="back_neck_width_xl" class="input-field"></td><td><input type="text" name="back_neck_width_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="back_neck_width_s" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_m" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_l" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_xl" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BACK NECK WIDTH IN TO IN / 后领宽</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="back_neck_width_in_s" class="input-field"></td><td><input type="text" name="back_neck_width_in_m" class="input-field"></td><td><input type="text" name="back_neck_width_in_l" class="input-field"></td><td><input type="text" name="back_neck_width_in_xl" class="input-field"></td><td><input type="text" name="back_neck_width_in_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="back_neck_width_in_s" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_in_m" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_in_l" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_in_xl" class="input-field"></td><td><input type="text" readonly  name="back_neck_width_in_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">FRONT NECK DEPTH / 前领深</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="front_neck_depth_s" class="input-field"></td><td><input type="text" name="front_neck_depth_m" class="input-field"></td><td><input type="text" name="front_neck_depth_l" class="input-field"></td><td><input type="text" name="front_neck_depth_xl" class="input-field"></td><td><input type="text" name="front_neck_depth_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="front_neck_depth_s" class="input-field"></td><td><input type="text" readonly  name="front_neck_depth_m" class="input-field"></td><td><input type="text" readonly  name="front_neck_depth_l" class="input-field"></td><td><input type="text" readonly  name="front_neck_depth_xl" class="input-field"></td><td><input type="text" readonly  name="front_neck_depth_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BACK NECK DEPTH / 后领深</td>
                     <td><label>-</label></td>
-                    <td><input type="text" name="back_neck_depth_s" class="input-field"></td><td><input type="text" name="back_neck_depth_m" class="input-field"></td><td><input type="text" name="back_neck_depth_l" class="input-field"></td><td><input type="text" name="back_neck_depth_xl" class="input-field"></td><td><input type="text" name="back_neck_depth_xxl" class="input-field"></td>
+                    <td><input type="text" readonly  name="back_neck_depth_s" class="input-field"></td><td><input type="text" readonly  name="back_neck_depth_m" class="input-field"></td><td><input type="text" readonly  name="back_neck_depth_l" class="input-field"></td><td><input type="text" readonly  name="back_neck_depth_xl" class="input-field"></td><td><input type="text" readonly  name="back_neck_depth_xxl" class="input-field"></td>
                 </tr>
             </tbody>
         </table>
