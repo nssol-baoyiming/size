@@ -84,7 +84,7 @@
                 <tr>
                     <td style="text-align: left;">BODY LENGTH FRONT / 前身长111</td>
                     <td><label>-</label></td>
-                    <td><input type="text" readonly   name="body_length_front_s" class="input-field"></td><td><input type="text" readonly   name="body_length_front_m" class="input-field"></td><td><input type="text" readonly   name="body_length_front_l" class="input-field"></td><td><input type="text" readonly   name="body_length_front_xl" class="input-field"></td><td><input type="text" readonly   name="body_length_front_xxl" class="input-field"></td>
+                    <td><input type="text" name="body_length_front_s" class="input-field"></td><td><input type="text" readonly   name="body_length_front_m" class="input-field"></td><td><input type="text" readonly   name="body_length_front_l" class="input-field"></td><td><input type="text" readonly   name="body_length_front_xl" class="input-field"></td><td><input type="text" readonly   name="body_length_front_xxl" class="input-field"></td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">BODY LENGTH BACK / 后身长</td>
@@ -185,6 +185,7 @@
 
         document.querySelectorAll('.input-field').forEach(input => {
             input.addEventListener('focus', (event) => {
+                event.preventDefault();
                 currentInputField = event.target;
                 const rect = currentInputField.getBoundingClientRect();
                 const calculatorPanel = document.getElementById('calculatorPanel');
