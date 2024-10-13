@@ -264,5 +264,34 @@
     }
 }
     </script>
+    <div class="quick-input-panel" id="quickInputPanel" style="display: none; position: absolute; padding: 10px; background: #fff; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1000; border-radius: 4px;">
+        <div>
+            <!-- Buttons from -1.0 to +1.0 with a step of 0.1 -->
+            <script>
+                for (let i = -1.0; i <= 1.0; i += 0.1) {
+                    document.write(`<button class="calculator-button" onclick="quickInput('${i.toFixed(1)}')">${i.toFixed(1)}</button>`);
+                }
+            </script>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('focus', (event) => {
+                currentInputField = event.target;
+                const rect = currentInputField.getBoundingClientRect();
+                const quickInputPanel = document.getElementById('quickInputPanel');
+                let topPosition = rect.top + window.scrollY + rect.height + 5;
+                quickInputPanel.style.top = `${topPosition}px`;
+                quickInputPanel.style.left = `${rect.left + window.scrollX}px`;
+                quickInputPanel.style.display = 'block';
+            });
+        });
+        document.addEventListener('click', (event) => {
+            const quickInputPanel = document.getElementById('quickInputPanel');
+            if (!quickInputPanel.contains(event.target) && currentInputField !== event.target) {
+                quickInputPanel.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
