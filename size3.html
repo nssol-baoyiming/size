@@ -177,7 +177,7 @@
             <button class="calculator-button" onclick="toggleSign()">+/-</button>
         </div>
         <div>
-            <button class="calculator-button" onclick="clearInput()" style="width: calc(40px * 3 + 3px * 5);">Clear</button>
+            <button class="calculator-button" onclick="clearInput()" style="width: 120px;">Clear</button>
             <button class="calculator-button" onclick="nextInput()">Next</button>
         </div>
         <div>
@@ -186,6 +186,13 @@
             <button class="calculator-button" onclick="quickInput('0')">0</button>
             <button class="calculator-button" onclick="quickInput('0.5')">+0.5</button>
             <button class="calculator-button" onclick="quickInput('1.0')">+1.0</button>
+        </div>
+        <div>
+            <button class="calculator-button" onclick="switchToQuickInput()">Switch to Quick Input</button>
+        </div>
+    </div>
+        <div>
+            <button class="calculator-button" onclick="switchToCalculator()">Switch to Calculator</button>
         </div>
     </div>
     <script>
@@ -258,12 +265,26 @@
         inputs[0].focus();
     }
 }
+        inputs[nextIndex].focus();
+    } else if (inputs.length > 0) {
+        inputs[0].focus();
+    }
+}
     function quickInput(value) {
     if (currentInputField) {
         currentInputField.value = value;
     }
 }
-    </script>
+    function switchToQuickInput() {
+    document.getElementById('calculatorPanel').style.display = 'none';
+    document.getElementById('quickInputPanel').style.display = 'block';
+}
+
+function switchToCalculator() {
+    document.getElementById('quickInputPanel').style.display = 'none';
+    document.getElementById('calculatorPanel').style.display = 'block';
+}
+</script>
     <div class="quick-input-panel" id="quickInputPanel" style="display: none; position: absolute; padding: 10px; background: #fff; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1000; border-radius: 4px;">
         <div>
             <!-- Buttons from -1.0 to +1.0 with a step of 0.1 -->
