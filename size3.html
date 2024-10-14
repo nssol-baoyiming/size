@@ -154,165 +154,232 @@
             </tbody>
         </table>
     </form>
-
-    <div class="calculator-panel" id="calculatorPanel" style="display: none;">
-        <div>
-            <button class="calculator-button" onclick="addToInput('7')">7</button>
-            <button class="calculator-button" onclick="addToInput('8')">8</button>
-            <button class="calculator-button" onclick="addToInput('9')">9</button>
+    <div class="calculator-panel" id="calculatorContainer" style="display: none; position: absolute;">
+        <div id="calculatorPanel" class="panel-content" style="display: none;">
+            <div>
+                <button class="calculator-button" onclick="addToInput('7')">7</button>
+                <button class="calculator-button" onclick="addToInput('8')">8</button>
+                <button class="calculator-button" onclick="addToInput('9')">9</button>
+            </div>
+            <div>
+                <button class="calculator-button" onclick="addToInput('4')">4</button>
+                <button class="calculator-button" onclick="addToInput('5')">5</button>
+                <button class="calculator-button" onclick="addToInput('6')">6</button>
+            </div>
+            <div>
+                <button class="calculator-button" onclick="addToInput('1')">1</button>
+                <button class="calculator-button" onclick="addToInput('2')">2</button>
+                <button class="calculator-button" onclick="addToInput('3')">3</button>
+            </div>
+            <div>
+                <button class="calculator-button" onclick="addToInput('0')">0</button>
+                <button class="calculator-button" onclick="addToInput('.')">.</button>
+                <button class="calculator-button" onclick="toggleSign()">+/-</button>
+            </div>
         </div>
-        <div>
-            <button class="calculator-button" onclick="addToInput('4')">4</button>
-            <button class="calculator-button" onclick="addToInput('5')">5</button>
-            <button class="calculator-button" onclick="addToInput('6')">6</button>
+        <div id="quickInputPanel" class="panel-content" style="display: block;">
+            <div>
+                <button class="calculator-button" onclick="quickInput('-1.0')">-1.0</button>
+                <button class="calculator-button" onclick="quickInput('-0.9')">-0.9</button>
+                <button class="calculator-button" onclick="quickInput('-0.8')">-0.8</button>
+                <button class="calculator-button" onclick="quickInput('-0.7')">-0.7</button>
+                <button class="calculator-button" onclick="quickInput('-0.6')">-0.6</button>
+            </div>
+            <div>
+                <button class="calculator-button" onclick="quickInput('-0.5')">-0.5</button>
+                <button class="calculator-button" onclick="quickInput('-0.4')">-0.4</button>
+                <button class="calculator-button" onclick="quickInput('-0.3')">-0.3</button>
+                <button class="calculator-button" onclick="quickInput('-0.2')">-0.2</button>
+                <button class="calculator-button" onclick="quickInput('-0.1')">-0.1</button>
+            </div>
+            <div style="height: 1px; background-color: #ccc; width: 100%; margin: 10px 0;"></div>
+            <div>
+                <button class="calculator-button" onclick="quickInput('+0.1')">+0.1</button>
+                <button class="calculator-button" onclick="quickInput('+0.2')">+0.2</button>
+                <button class="calculator-button" onclick="quickInput('+0.3')">+0.3</button>
+                <button class="calculator-button" onclick="quickInput('+0.4')">+0.4</button>
+                <button class="calculator-button" onclick="quickInput('+0.5')">+0.5</button>
+            </div>
+            <div>
+                <button class="calculator-button" onclick="quickInput('+0.6')">+0.6</button>
+                <button class="calculator-button" onclick="quickInput('+0.7')">+0.7</button>
+                <button class="calculator-button" onclick="quickInput('+0.8')">+0.8</button>
+                <button class="calculator-button" onclick="quickInput('+0.9')">+0.9</button>
+                <button class="calculator-button" onclick="quickInput('+1.0')">+1.0</button>
+            </div>
         </div>
+        <div style="height: 1px; background-color: #ccc; width: 100%; margin: 10px 0;"></div>
         <div>
-            <button class="calculator-button" onclick="addToInput('1')">1</button>
-            <button class="calculator-button" onclick="addToInput('2')">2</button>
-            <button class="calculator-button" onclick="addToInput('3')">3</button>
-        </div>
-        <div>
-            <button class="calculator-button" onclick="addToInput('0')">0</button>
-            <button class="calculator-button" onclick="addToInput('.')">.</button>
-            <button class="calculator-button" onclick="toggleSign()">+/-</button>
-        </div>
-        <div>
-            <button class="calculator-button" onclick="clearInput()" style="width: 120px;">Clear</button>
+            <button class="calculator-button" onclick="clearInput()">Clear</button>
             <button class="calculator-button" onclick="nextInput()">Next</button>
-        </div>
-        <div>
-            <button class="calculator-button" onclick="quickInput('-1.0')">-1.0</button>
-            <button class="calculator-button" onclick="quickInput('-0.5')">-0.5</button>
-            <button class="calculator-button" onclick="quickInput('0')">0</button>
-            <button class="calculator-button" onclick="quickInput('0.5')">+0.5</button>
-            <button class="calculator-button" onclick="quickInput('1.0')">+1.0</button>
-        </div>
-        <div>
-            <button class="calculator-button" onclick="switchToQuickInput()">Switch to Quick Input</button>
-        </div>
-    </div>
-        <div>
-            <button class="calculator-button" onclick="switchToCalculator()">Switch to Calculator</button>
+            <button class="calculator-button" onclick="switchPanel()">Switch</button>
         </div>
     </div>
     <script>
-        let currentInputField = null;
+    // let currentInputField = null;
 
-        document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('focus', (event) => {
-                currentInputField = event.target;
-                currentInputField.removeAttribute('readonly');
-                                currentInputField = event.target;
-                const rect = currentInputField.getBoundingClientRect();
-                const calculatorPanel = document.getElementById('calculatorPanel');
-                let topPosition = rect.bottom + window.scrollY;
-                if (topPosition + calculatorPanel.offsetHeight > window.innerHeight) {
-                    topPosition = rect.top + window.scrollY - calculatorPanel.offsetHeight - 10;
-                }
-                calculatorPanel.style.top = `${topPosition}px`;
-                let leftPosition = rect.right + window.scrollX - calculatorPanel.offsetWidth;
-                if (leftPosition + calculatorPanel.offsetWidth > window.innerWidth) {
-                    leftPosition = window.innerWidth - calculatorPanel.offsetWidth - 10;
-                }
-                calculatorPanel.style.left = `${leftPosition}px`;
-                calculatorPanel.style.display = 'block';
-            });
-            
-        });
+    // document.querySelectorAll('.input-field').forEach(input => {
+    //     input.addEventListener('focus', (event) => {
+    //         currentInputField = event.target;
 
-        function addToInput(value) {
-            if (value !== '+/-' && currentInputField && currentInputField.value === '') {
-                currentInputField.value = '+';
-            }
-            if (currentInputField) {
-                currentInputField.value += value;
-            }
-        }
+    //         // Hide both panels initially
+    //         const calculatorPanel = document.getElementById('calculatorPanel');
+    //         const quickInputPanel = document.getElementById('quickInputPanel');
 
-        function toggleSign() {
-            if (currentInputField) {
-                if (currentInputField.value.startsWith('-')) {
-                    currentInputField.value = '+' + currentInputField.value.substring(1);
-                } else if (currentInputField.value.startsWith('+')) {
-                    currentInputField.value = '-' + currentInputField.value.substring(1);
-                } else {
-                    currentInputField.value = '-' + currentInputField.value;
-                }
-            }
-        }
+    //         // Determine which panel to show
+    //         const rect = currentInputField.getBoundingClientRect();
+    //         if (currentInputField.classList.contains('input-field')) {
+    //             // Show calculator panel
+    //             var topPosition = rect.bottom + window.scrollY;
+    //             if (topPosition + calculatorPanel.offsetHeight > window.innerHeight) {
+    //                 topPosition = rect.top + window.scrollY - calculatorPanel.offsetHeight - 10;
+    //             }
+    //             calculatorPanel.style.top = `${topPosition}px`;
+    //             var leftPosition = rect.right + window.scrollX - calculatorPanel.offsetWidth;
+    //             if (leftPosition + calculatorPanel.offsetWidth > window.innerWidth) {
+    //                 leftPosition = window.innerWidth - calculatorPanel.offsetWidth - 10;
+    //             }
+    //             calculatorPanel.style.left = `${leftPosition}px`;
+    //         }
+    //     });
+    // });
 
-        function clearInput() {
-            if (currentInputField) {
-                currentInputField.value = '';
-            }
+    // function addToInput(value) {
+    //     if (value !== '+/-' && currentInputField && currentInputField.value === '') {
+    //         currentInputField.value = '+';
+    //     }
+    //     if (currentInputField) {
+    //         currentInputField.value += value;
+    //     }
+    // }
+
+    // function toggleSign() {
+    //     if (currentInputField) {
+    //         if (currentInputField.value.startsWith('-')) {
+    //             currentInputField.value = '+' + currentInputField.value.substring(1);
+    //         } else if (currentInputField.value.startsWith('+')) {
+    //             currentInputField.value = '-' + currentInputField.value.substring(1);
+    //         } else {
+    //             currentInputField.value = '-' + currentInputField.value;
+    //         }
+    //     }
+    // }
+
+    // function clearInput() {
+    //     if (currentInputField) {
+    //         currentInputField.value = '';
+    //     }
+    // }
+
+    // function nextInput() {
+    //     const inputs = document.querySelectorAll('.input-field');
+    //     if (currentInputField) {
+    //         let currentIndex = Array.from(inputs).indexOf(currentInputField);
+    //         let nextIndex = currentIndex + 5;
+    //         if (nextIndex >= inputs.length) {
+    //             nextIndex = currentIndex % 5 + 1;
+    //         }
+    //         inputs[nextIndex].focus();
+    //     } else if (inputs.length > 0) {
+    //         inputs[0].focus();
+    //     }
+    // }
+
+    // function quickInput(value) {
+    //     if (currentInputField) {
+    //         currentInputField.value = value;
+    //     }
+    // }
+
+    function switchPanel() {
+        const calculatorPanel = document.getElementById('calculatorPanel');
+        const quickInputPanel = document.getElementById('quickInputPanel');
+        if (calculatorPanel.style.display === 'block') {
+            calculatorPanel.style.display = 'none';
+            quickInputPanel.style.display = 'block';
+        } else {
+            calculatorPanel.style.display = 'block';
+            quickInputPanel.style.display = 'none';
         }
-        document.addEventListener('click', (event) => {
-            const calculatorPanel = document.getElementById('calculatorPanel');
-            if (!calculatorPanel.contains(event.target) && currentInputField !== event.target) {
-                calculatorPanel.style.display = 'none';
-            }
-        });
-        function nextInput() {
-    const inputs = document.querySelectorAll('.input-field');
-    if (currentInputField) {
-        let currentIndex = Array.from(inputs).indexOf(currentInputField);
-        let nextIndex = currentIndex + 5;
-        if (nextIndex >= inputs.length) {
-            nextIndex = currentIndex % 5 + 1;
-        }
-        inputs[nextIndex].focus();
-    } else if (inputs.length > 0) {
-        inputs[0].focus();
     }
-}
-        inputs[nextIndex].focus();
-    } else if (inputs.length > 0) {
-        inputs[0].focus();
-    }
-}
-    function quickInput(value) {
-    if (currentInputField) {
-        currentInputField.value = value;
-    }
-}
-    function switchToQuickInput() {
-    document.getElementById('calculatorPanel').style.display = 'none';
-    document.getElementById('quickInputPanel').style.display = 'block';
-}
-
-function switchToCalculator() {
-    document.getElementById('quickInputPanel').style.display = 'none';
-    document.getElementById('calculatorPanel').style.display = 'block';
-}
 </script>
-    <div class="quick-input-panel" id="quickInputPanel" style="display: none; position: absolute; padding: 10px; background: #fff; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1000; border-radius: 4px;">
-        <div>
-            <!-- Buttons from -1.0 to +1.0 with a step of 0.1 -->
-            <script>
-                for (let i = -1.0; i <= 1.0; i += 0.1) {
-                    document.write(`<button class="calculator-button" onclick="quickInput('${i.toFixed(1)}')">${i.toFixed(1)}</button>`);
-                }
-            </script>
-        </div>
-    </div>
+    
     <script>
-        document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('focus', (event) => {
-                currentInputField = event.target;
-                const rect = currentInputField.getBoundingClientRect();
-                const quickInputPanel = document.getElementById('quickInputPanel');
-                let topPosition = rect.top + window.scrollY + rect.height + 5;
-                quickInputPanel.style.top = `${topPosition}px`;
-                quickInputPanel.style.left = `${rect.left + window.scrollX}px`;
-                quickInputPanel.style.display = 'block';
-            });
+    document.querySelectorAll('.input-field').forEach(input => {
+        input.addEventListener('focus', (event) => {
+            currentInputField = event.target;
+
+            // Hide panel initially
+            const calculatorContainer = document.getElementById('calculatorContainer');
+            calculatorContainer.style.display = 'none';
+
+            // Show panel
+            const rect = currentInputField.getBoundingClientRect();
+            var topPosition = rect.bottom + window.scrollY;
+            var leftPosition = rect.left + window.scrollX;
+            calculatorContainer.style.top = `${topPosition}px`;
+            calculatorContainer.style.left = `${leftPosition}px`;
+            calculatorContainer.style.display = 'block';
         });
-        document.addEventListener('click', (event) => {
-            const quickInputPanel = document.getElementById('quickInputPanel');
-            if (!quickInputPanel.contains(event.target) && currentInputField !== event.target) {
-                quickInputPanel.style.display = 'none';
+    });
+
+    function addToInput(value) {
+        if (value !== '+/-' && currentInputField && currentInputField.value === '') {
+            currentInputField.value = '+';
+        }
+        if (currentInputField) {
+            currentInputField.value += value;
+        }
+    }
+
+    function toggleSign() {
+        if (currentInputField) {
+            if (currentInputField.value.startsWith('-')) {
+                currentInputField.value = '+' + currentInputField.value.substring(1);
+            } else if (currentInputField.value.startsWith('+')) {
+                currentInputField.value = '-' + currentInputField.value.substring(1);
+            } else {
+                currentInputField.value = '-' + currentInputField.value;
             }
-        });
-    </script>
+        }
+    }
+
+    function clearInput() {
+        if (currentInputField) {
+            currentInputField.value = '';
+        }
+    }
+
+    function nextInput() {
+        const inputs = document.querySelectorAll('.input-field');
+        if (currentInputField) {
+            let currentIndex = Array.from(inputs).indexOf(currentInputField);
+            let nextIndex = currentIndex + 5;
+            if (nextIndex >= inputs.length) {
+                nextIndex = currentIndex % 5 + 1;
+            }
+            inputs[nextIndex].focus();
+        } else if (inputs.length > 0) {
+            inputs[0].focus();
+        }
+    }
+
+    function quickInput(value) {
+        if (currentInputField) {
+            currentInputField.value = value;
+        }
+    }
+
+    document.addEventListener('click', (event) => {
+        const calculatorContainer = document.getElementById('calculatorContainer');
+        if (
+            !calculatorContainer.contains(event.target) &&
+            currentInputField !== event.target
+        ) {
+            calculatorContainer.style.display = 'none';
+        }
+    });
+</script>
+
 </body>
 </html>
