@@ -311,12 +311,15 @@
 
             // Hide panel initially
             const calculatorContainer = document.getElementById('calculatorContainer');
-            calculatorContainer.style.display = 'none';
+            calculatorContainer.style.display = 'block';
 
             // Show panel
             const rect = currentInputField.getBoundingClientRect();
             var topPosition = rect.bottom + window.scrollY;
             var leftPosition = rect.left + window.scrollX;
+            if (leftPosition + calculatorContainer.offsetWidth > window.innerWidth) {
+                leftPosition = rect.right + window.scrollX - calculatorContainer.offsetWidth;
+            }
             calculatorContainer.style.top = `${topPosition}px`;
             calculatorContainer.style.left = `${leftPosition}px`;
             calculatorContainer.style.display = 'block';
