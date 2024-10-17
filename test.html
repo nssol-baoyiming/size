@@ -33,8 +33,8 @@
         const downloadLink = document.getElementById('download');
         const context = canvas.getContext('2d');
 
-        // Access the device camera and stream to video element
-        navigator.mediaDevices.getUserMedia({ video: true })
+        // Access the device camera and stream to video element (use rear camera if available)
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
             .then((stream) => {
                 video.srcObject = stream;
             })
