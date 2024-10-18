@@ -53,6 +53,28 @@
             const dataURL = canvas.toDataURL('image/png');
             downloadLink.href = dataURL;
             downloadLink.style.display = 'block';
+
+            // Store the image in IndexedDB
+            const request = indexedDB.open('cameraCaptureDB', 1);
+
+            request.onupgradeneeded = (event) => {
+                const db = event.target.result;
+                if (!db.objectStoreNames.contains('images')) {
+                    db.createObjectStore('images', { keyPath: 'id', autoIncrement: true });
+                }
+            };
+
+            request.onsuccess = (event) => {
+                const db = event.target.result;
+                const transaction = db.transaction('images', 'readwrite');
+                const store = transaction.objectStore('images');
+                const image = { data: dataURL, timestamp: new Date() };
+                store.add(image);
+            };
+
+            request.onerror = (event) => {
+                console.error("Error opening IndexedDB: ", event.target.error);
+            };
         });
     </script>
 </body>
